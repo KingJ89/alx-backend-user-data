@@ -3,7 +3,7 @@
 Route module for the API
 """
 
-from api.v1.views import app_views
+from api.v1.views import users.py
 from flask import Flask, jsonify, abort, request
 from flask_cors import CORS
 from os import getenv
@@ -11,7 +11,7 @@ from os import getenv
 # Initialize Flask application
 api_app = Flask(__name__)
 api_app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
-api_app.register_blueprint(app_views)
+api_app.register_blueprint(users.py)
 CORS(api_app, resources={r"/api/v1/*": {"origins": "*"}})
 
 authentication = None
